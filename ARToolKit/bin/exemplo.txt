@@ -1,0 +1,15 @@
+export ARTOOLKIT_CONFIG="-palette=YUV420P"
+export ARTOOLKIT_CONFIG="v4l2src device=/dev/video1 use-fixed-fps=false ! ffmpegcolorspace ! capsfilter caps=video/x-raw-rgb,bpp=24,width=960,height=720 ! identity name=artoolkit ! fakesink"
+export ARTOOLKIT_CONFIG="v4l2src device=/dev/video1 use-fixed-fps=false ! ffmpegcolorspace ! capsfilter caps=video/x-raw-rgb,bpp=24,width=800,height=600 ! identity name=artoolkit ! fakesink"
+export ARTOOLKIT_CONFIG="v4l2src device=/dev/video1 ! ffmpegcolorspace ! capsfilter caps=video/x-raw-rgb,bpp=24,width=320,height=240 ! identity name=artoolkit ! fakesink"
+
+export ARTOOLKIT_CONFIG="v4l2src ! video/x-raw-yuv,width=320,height=240 ! ffmpegcolorspace ! xvimagesink ! identity name=artoolkit"
+export ARTOOLKIT_CONFIG="-dev=/dev/video1 -palette=YUV420P -width=640 -height=480"
+export ARTOOLKIT_CONFIG="gnomevfssrc location=http://130.101.10.131/cgi-bin/mjpg/video.cgi ! jpegdec ! ffmpegcolorspace ! capsfilter caps=video/x-raw-rgb,bpp=24 ! identity name=artoolkit ! fakesink"
+
+export ARTOOLKIT_CONFIG="v4l2src device=/dev/video1 ! ffmpegcolorspace ! capsfilter caps=video/x-raw-rgb,bpp=24,width=640,height=480 ! identity name=artoolkit ! fakesink"
+
+
+export ARTOOLKIT_CONFIG="v4l2src device=/dev/video1 use-fixed-fps=false ! ffmpegcolorspace ! capsfilter caps=video/x-raw-rgb,bpp=24,width=800,height=600 ! identity name=artoolkit ! fakesink"
+
+export ARTOOLKIT_CONFIG="v4l2src device=/dev/video1 palette=RGB ! decodebin ! ffmpegcolorspace ! capsfilter caps=video/x-raw-rgb,bpp=24 ! videoscale ! video/x-raw-rgb, width=320, height=240 ! identity name=artoolkit ! fakesink sync=1"

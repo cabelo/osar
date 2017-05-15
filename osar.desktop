@@ -1,0 +1,10 @@
+[Desktop Entry]
+X-SuSE-translate=true
+Version=1.0
+Type=Application
+Categories=Graphics;3DGraphics;
+Name=OSAR
+Exec=/usr/local/bin/OSAR
+Icon=/usr/share/pixmaps/OSARico.png
+Terminal=false
+

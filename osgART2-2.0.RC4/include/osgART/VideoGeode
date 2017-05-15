@@ -1,0 +1,135 @@
+/* -*-c++-*- 
+ * 
+ * osgART - ARToolKit for OpenSceneGraph
+ * Copyright (C) 2005-2008 Human Interface Technology Laboratory New Zealand
+ * 
+ * This file is part of osgART 2.0
+ *
+ * osgART 2.0 is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * osgART 2.0 is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with osgART 2.0.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ */
+
+/**
+ *  \file  VideoGeode
+ *  \brief Geometry wrapper being used to render a video onto.
+ * 
+ * 
+ * 
+ *
+ *
+ *  \author Hartmut Seichter hartmut.seichter@hitlabnz.org
+ *  \version 1.0
+ *  \date 08/08/2007
+ **/
+
+#ifndef OSGART_VIDEOGEODE
+#define OSGART_VIDEOGEODE
+
+#include <deque>
+
+#include <osg/Drawable>
+#include <osg/Geode>
+
+
+#include "osgART/Export"
+
+
+namespace osgART {
+
+	class OSGART_EXPORT VideoGeode : public osg::Geode
+	{
+	public:
+	
+		/** 
+	     * Modes how the video is being rendered.
+	     */
+		enum TextureMode 
+		{			
+			USE_TEXTURE_2D,				/**< Video is being pasted into a 2D texture */
+			USE_TEXTURE_RECTANGLE,		/**< Video is being attached to a 2D rectangle */
+		};
+
+
+		/** Constructor */
+		VideoGeode(TextureMode texturemode = USE_TEXTURE_2D, osg::Image* image = 0L);
+
+        /** Copy constructor using CopyOp to manage deep vs shallow copy.*/
+        VideoGeode(const VideoGeode&, const osg::CopyOp& copyop = osg::CopyOp::SHALLOW_COPY);
+
+        META_Node(osgART, VideoGeode);
+
+
+		/** 
+		 * Add a video or image stream to the geode
+		 * 
+		 */
+		 virtual void addImage(osg::Image* image);		 
+		 
+		 /**
+		  * Wrapper around osg::Geode::addDrawable
+		  * \param drawable 
+		  */
+		 virtual bool addDrawable(osg::Drawable *drawable );
+		 
+//		 virtual bool removeDrawable(osg::Drawable *drawable );
+		 
+		 
+//		 virtual bool replaceDrawable(osg::Drawable *origDraw, Drawable *newDraw );
+		 
+//		 virtual bool removeDrawables(unsigned int i,unsigned int numDrawablesToRemove=1);
+		 
+//		 virtual bool setDrawable( unsigned int i, osg::Drawable* drawable );
+		 
+		 
+		 
+		 
+		 
+		 /**
+		  * Set alpha transparency
+		  */
+		 void setAlpha(float alpha);		 
+		 
+		 
+		 /**
+		  * Overriding in order to automatically update the 
+		  * texture.
+		  */
+		 virtual void computeTextures();
+		 
+		 
+		 /**
+		  * 
+		  */
+		 typedef std::deque< osg::ref_ptr<osg::Image> > ImageArray;
+		 
+		 
+		 TextureMode getTextureMode() const {
+			return _textureMode;		 
+		 }
+		 
+		 virtual void setTextureMode(TextureMode textureMode);
+		 
+		 
+	protected:	
+
+		virtual ~VideoGeode();		
+		
+		ImageArray _images;
+		
+		TextureMode _textureMode;
+
+	};
+}
+
+#endif
