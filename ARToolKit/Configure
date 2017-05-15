@@ -112,7 +112,8 @@ then
         LDFLAG="$GST_LIBS -L/usr/X11R6/lib -L/usr/local/lib"
         ARFLAG="rs"
         RANLIB=""
-        LIBS="-lpthread -lglut -lGLU -lGL -lXi -lX11 -lm"
+        LIBS="-lpthread -lglut -lGLU -lGL -lXi -lX11 -lm -pthread -lgstreamer-0.10 -lgobject-2.0 -lgmodule-2.0 -lxml2 -lgthread-2.0 -lrt -lglib-2.0"
+
         CONFIG="AR_INPUT_GSTREAMER"
     else
         echo "Please enter 1,2,3,4 or 5."
