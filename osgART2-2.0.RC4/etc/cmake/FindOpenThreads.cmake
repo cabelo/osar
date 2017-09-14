@@ -161,7 +161,7 @@ FIND_LIBRARY(OPENTHREADS_LIBRARY_DEBUG
     /usr/lib64
     /usr/lib
     /usr/lib/x86_64-linux-gnu
-    /usr/lib/386-linux-gnu
+    /usr/lib/i386-linux-gnu
     /sw/lib64
     /sw/lib
     /opt/local/lib64
