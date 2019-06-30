@@ -23,8 +23,6 @@ FIND_PATH(OSG_INCLUDE_DIR osg/Node
     /opt/local/include # DarwinPorts
     /opt/csw/include # Blastwave
     /opt/include
-	${CMAKE_SOURCE_DIR}/..
-	${CMAKE_SOURCE_DIR}
 	$ENV{PROGRAMFILES}/OpenSceneGraph/include
     [HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Session\ Manager\\Environment;OSG_ROOT]/include
     /usr/freeware/include
@@ -47,8 +45,6 @@ MACRO(FIND_OSG_LIBRARY MYLIBRARY MYLIBRARYNAME)
         /usr/local/lib
 		/usr/lib64
 		/usr/lib
-			/usr/lib/x86_64-linux-gnu
-			/usr/lib/i386-linux-gnu
         /sw/lib
         /opt/local/lib
         /opt/csw/lib

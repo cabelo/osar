@@ -15,7 +15,6 @@
 # Please submit bugfixes or comments via http://bugs.opensuse.org/
 #
 
-
 Name:           osgART2
 Version:        2.0.RC4
 Release:        7.1
@@ -31,12 +30,16 @@ BuildRequires: -post-build-checks -rpmlint-Factory -rpmlint-mini  -rpmlint
 BuildRequires: cmake
 BuildRequires: gcc-c++
 BuildRequires: freeglut-devel Mesa-libGL-devel doxygen
-BuildRequires: gstreamer-0_10-devel glu-devel 
-BuildRequires: libOpenSceneGraph-devel libOpenThreads-devel 
-BuildRequires: OpenSceneGraph-plugins libOpenSceneGraph-devel
+BuildRequires: gstreamer-0_10-devel glu-devel gstreamer-0_10-plugins-good 
+BuildRequires: libOpenSceneGraph-devel == 3.2.1 
+BuildRequires: libOpenThreads-devel == 3.2.1
+BuildRequires: OpenSceneGraph-plugins == 3.2.1 
+BuildRequires: libOpenSceneGraph-devel == 3.2.1
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 Requires: libosgART2
-Requires: OpenSceneGraph
+Requires: OpenSceneGraph == 3.2.1  
+Requires: OpenSceneGraph-plugins == 3.2.1
+Requires: libxine2
 Requires: gstreamer-0_10
 
 %description
@@ -83,8 +86,8 @@ make DESTDIR=%{buildroot} install
 mkdir -p %{buildroot}/usr/local/bin/data
 mkdir -p %{buildroot}/usr/share/applications/
 mkdir -p %{buildroot}/usr/share/pixmaps/
-mkdir -p %{buildroot}%{_libdir}/osgPlugins-3.2.0
-mv %{buildroot}/usr/lib/osgPlugins-3.2.0/* %{buildroot}%{_libdir}/osgPlugins-3.2.0/
+mkdir -p %{buildroot}%{_libdir}/osgPlugins-3.2.1
+mv %{buildroot}/usr/lib/osgPlugins-3.2.1/* %{buildroot}%{_libdir}/osgPlugins-3.2.1/
 mv %{buildroot}/usr/bin/* %{buildroot}/usr/local/bin/
 mv %{buildroot}/usr/lib/lib* %{buildroot}%{_libdir}
 mv $RPM_SOURCE_DIR/patt.openSUSE %{buildroot}/usr/local/bin/data/
@@ -125,7 +128,7 @@ chmod 755 %{buildroot}/usr/local/bin/OSAR
 
 %files -n lib%{name}
 %defattr(-,root,root)
-%{_libdir}/osgPlugins-3.2.0/*
+%{_libdir}/osgPlugins-3.2.1/*
 %{_libdir}/lib*
 
 
@@ -134,6 +137,8 @@ chmod 755 %{buildroot}/usr/local/bin/OSAR
 %{_includedir}/osgART/*
 
 %changelog
+* Mon Jun 26 2019 cabelo@opensuse.org
+- New version and stable.
 * Wed Apr  3 2013 cabelo@opensuse.org
 - Created OpenSceneGraph-libgif6.patch
   Used Raymond Wooninck kdelibs patch as a template
