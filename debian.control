@@ -1,0 +1,13 @@
+Source: osgart2
+Section: unknown
+Priority: optional
+Maintainer: Alessandro de Oliviera Faria (A.K.A. CABELO) <cabelo@opensuse.org>
+Build-Depends: g++, cmake, make,  debhelper (>= 4.1.16), freeglut3-dev, libgl1-mesa-dev, libgstreamer0.10-dev, libgstreamer-plugins-base0.10-dev, libgtk2.0-dev, libglib2.0-dev,  libjpeg62-dev, libxmu-dev, libxmu-headers, libxi-dev, apt, apt-utils, software-properties-common, sudo 
+
+Package: osgart2
+Architecture: any
+Depends: openscenegraph openscenegraph-example freeglut3, libgl1-mesa, libgstreamer0.10, libgstreamer-plugins-base0.10, libgtk2.0, libglib2.0,  libjpeg62, libxmu, libxmu-headers, libxi
+Description: osgart2
+ OSGART is a library that simplifies the development of Augmented Reality or Mixed Reality applications by combining the well-known ARToolKit tracking library with OpenSceneGraph. 
+
+
